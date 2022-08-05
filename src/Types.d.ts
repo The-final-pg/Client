@@ -10,6 +10,7 @@ export interface ClientType {
     disabled:boolean
 }
 
+
 export interface WorkerType{
     name:String,
     lastName:String,
@@ -42,7 +43,7 @@ export interface newWorkerType {
     image:String, 
     profession:String[], 
     skills:String[]
-
+    
 }
 
 export interface errorsType {
@@ -52,6 +53,29 @@ export interface errorsType {
     user_mail:String,
     birthdate:String,
     image:String,
+}
+export interface FormLogin{
+    user_mail: String,
+    password: String,
+    disabled:boolean,
+    errors:errorLogin
+}
+
+export interface userLogged{
+    user_mail: String,
+    password: String
+}
+
+export interface currentUsers{
+    user_mail: String,
+    password: String,
+    isWorker: Boolean,
+    isAdmin: Boolean
+}
+
+export interface errorLogin{
+    user_mail: String,
+    password: String
 }
 
 export interface errorsTypeWorker {

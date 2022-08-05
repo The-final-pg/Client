@@ -7,7 +7,8 @@ const initialState = {
     clientById: {},
     offers: [],
     offerById: {},
-    professions:[]
+    professions:[],
+    currentUser: {}
 }
 
 export const workServiceSlice = createSlice({
@@ -26,10 +27,12 @@ export const workServiceSlice = createSlice({
         setOfferById: function (state:any, action:any){
           state.offerById = action.payload;
       },
+        setCurrentUser: function (state:any, action:any){
+          state.currentUser = action.payload;
     }
-})
+}})
 
-export const { setAllClients, setClientById, setAllOffers, setOfferById } = workServiceSlice.actions;
+export const { setAllClients, setClientById, setAllOffers, setOfferById, setCurrentUser } = workServiceSlice.actions;
 
 export default workServiceSlice.reducer;
 
@@ -140,6 +143,22 @@ export const getOfferId = () => (dispatch: any) => {
   }
     dispatch(setOfferById(offerId));
  }
+
+ export const postLogin = async (dispatch:any, user: type.userLogged) => {
+  try{
+    console.log("entre al postLogin", user)
+    const token = await axios({
+      method: "post",
+      url: "http://localhost:3001/login",
+      data: user
+    })
+    localStorage.setItem("token", JSON.stringify(token.data))
+    dispatch(setCurrentUser(user))
+  } catch(e){
+    return e
+  }
+ }
+
 
 export const postNewClient = (newClient:type.newClientType) => {
   try{
