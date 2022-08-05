@@ -164,7 +164,7 @@ handleSelect(e:any){
             
             <input type="text" name="skills" placeholder='Habilidades' onChange={(e) => this.handleChange(e)}/>
             <span>Ingeniero, Diseñador</span>
-            <span>Phyton, Css...</span>
+            <span>Python, Css...</span>
             <input disabled={this.state.disabled} name="button" type="submit" value="Registrar" onClick={(e) => this.handleSubmit(e)} />
           </form>
         </div>
