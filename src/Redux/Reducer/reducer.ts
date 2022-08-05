@@ -7,6 +7,7 @@ const initialState = {
     clientById: {},
     offers: [],
     offerById: {},
+    professions: [],
 }
 
 export const workServiceSlice = createSlice({

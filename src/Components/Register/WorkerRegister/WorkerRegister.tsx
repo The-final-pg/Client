@@ -3,14 +3,15 @@ import image1 from "../../../images/Coins_Monochromatic.png";
 import image2 from "../../../images/Piggy_bank_Monochromatic.png";
 import image3 from "../../../images/Video_call_Monochromatic_1.png";
 import * as type from "../../../Types";
+import { connect } from "react-redux";
 
 export class WorkerRegister extends Component {
   state: type.WorkerType;
-  inputSkills: string[]
+  props: any;
+
   constructor(props: type.WorkerType) {
     super(props)
-    this.inputSkills = []
-
+    
     this.state = {
       name: "",
       lastName: "",
@@ -28,7 +29,8 @@ export class WorkerRegister extends Component {
         birthdate: "",
         image: "",
       },
-      disabled: true
+      disabled: true,
+      // inputSkills: []
     }
   }
 
@@ -88,11 +90,28 @@ handleChange(e:any) {
     default:
         break;
   }
+  this.setState({
+    [name]: value,
+    errors
+});
+this.validarForm(this.state.errors)
 }
 
 handleSubmit(e:any){
-this.setState(this.state.skills = this.inputSkills)
+  e.preventDefault();
+// this.setState({...this.state, skills: this.state.inputSkills})
 
+let { name, lastName, password, user_mail, birthdate, image, profession, skills} = this.state;
+name = this.firstWordUpperCase(name);
+lastName = this.firstWordUpperCase(lastName);
+
+}
+
+handleSelect(e:any){
+  const select = e.target.value;
+  if (select === "default") return
+  if(this.props.professions?.includes(e.target.value)) return
+ 
 }
 
   render() {
@@ -110,12 +129,27 @@ this.setState(this.state.skills = this.inputSkills)
           <p>Ya tienes una cuenta? accede a <a href="#">Login</a></p>
           <form id='form' onSubmit={(e) => e.preventDefault()}>
             <input type="text" name="name" placeholder='Nombre' onChange={(e) => this.handleChange(e)}/>
+            {!this.state.errors.name ? null : <div>{this.state.errors.name}</div>}
             <input type="text" name="lastname" placeholder='Apellido' onChange={(e) => this.handleChange(e)}/>
+            {!this.state.errors.lastName ? null : <div>{this.state.errors.lastName}</div>}
             <input type="password" name="password" placeholder='Contraseña' onChange={(e) => this.handleChange(e)}/>
+            {!this.state.errors.password ? null : <div>{this.state.errors.password}</div>}
             <input type="email" name="user_mail" placeholder='E-mail' onChange={(e) => this.handleChange(e)}/>
+            {!this.state.errors.user_mail ? null : <div>{this.state.errors.user_mail}</div>}
             <input type="date" name="birthdate" placeholder='Fecha de Nacimiento' onChange={(e) => this.handleChange(e)}/>
+            {!this.state.errors.birthdate ? null : <div>{this.state.errors.birthdate}</div>}
             <input type="url" name="image" placeholder='URL - imagen de perfil' onChange={(e) => this.handleChange(e)}/>
-            <input type="text" name="profession" placeholder='Profesiones' />
+            {!this.state.errors.image ? null : <div>{this.state.errors.image}</div>}
+            <select  name="profession" id='profession' onChange={(e) => this.handleSelect(e)}>
+                <option selected={true} hidden>Profesiones</option>
+                {
+                  this.props.professions?.map((e:any) =>{
+                      return <option value={e.id} key={e.id}> {e.name} </option>
+                  })
+                }
+            </select>
+                
+            
             <input type="text" name="skills" placeholder='Habilidades' onChange={(e) => this.handleChange(e)}/>
             <span>Ingeniero, Diseñador</span>
             <span>Phyton, Css...</span>
@@ -127,4 +161,14 @@ this.setState(this.state.skills = this.inputSkills)
   }
 }
 
-export default WorkerRegister
+function mapStateToProps (state:any){
+  return{
+    professions: state.workService.professions
+  }
+}
+
+
+
+
+//connect(mapStateToProps, null)
+export default (WorkerRegister);

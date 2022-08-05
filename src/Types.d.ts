@@ -20,7 +20,8 @@ export interface WorkerType{
     profession: String[],
     skills: String[],
     errors:errorsType,
-    disabled:boolean 
+    disabled:boolean
+    // inputSkills: String[] 
 }
 
 export interface newClientType {
