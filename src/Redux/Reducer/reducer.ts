@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { Dispatch } from "react";
 import * as type from "../../Types"
 
 const initialState = {
@@ -144,17 +145,21 @@ export const getOfferId = () => (dispatch: any) => {
     dispatch(setOfferById(offerId));
  }
 
- export const postLogin = async (dispatch:any, user: type.userLogged) => {
+ export const postLogin = (user: type.userLogged) => async (dispatch: Dispatch<any>) =>{
   try{
-    console.log("entre al postLogin", user)
+    console.log("aca entre")
     const token = await axios({
       method: "post",
       url: "http://localhost:3001/login",
       data: user
     })
+    console.log("aca no se")
     localStorage.setItem("token", JSON.stringify(token.data))
+    console.log("aca tal vez")
     dispatch(setCurrentUser(user))
+    console.log("aca ya no")
   } catch(e){
+    console.log("me fui al catch")
     return e
   }
  }

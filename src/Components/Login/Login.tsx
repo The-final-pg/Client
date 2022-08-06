@@ -2,10 +2,16 @@ import React, { Component } from 'react'
 import imgGoogle from "../../images/pngwing.com.png"
 import * as type from "../../Types"
 import { postLogin } from '../../Redux/Reducer/reducer'
+import { connect, ConnectedProps } from "react-redux";
 
-export class Login extends Component {
+interface HeaderState{
+  // props: any;
+  //inputSkills: string[]
+}
+
+export class Login extends Component <HeaderProps, HeaderState> { 
   state: type.FormLogin
-  constructor(props:type.FormLogin) {
+  constructor(props: HeaderProps) {
     super(props)
     this.state = {
       user_mail: "",
@@ -46,7 +52,7 @@ handleChange(e:any) {
     e.preventDefault();
     console.log("entre al submit")
     let { password, user_mail } = this.state;
-    /* postLogin({password: password, user_mail: user_mail}) */
+    this.props.postLogin({password, user_mail})
 }
 
   render() {
@@ -74,4 +80,19 @@ handleChange(e:any) {
   }
 }
 
-export default Login
+export const mapStateToProps = (state:any) => {
+  return {
+
+  }
+};
+export const mapDispatchToProps = (dispatch:any) => {
+  return {
+    postLogin: (newLoggedUser:type.userLogged) => dispatch(postLogin(newLoggedUser))
+  }
+};
+
+const connector = connect(mapStateToProps, mapDispatchToProps)
+
+type HeaderProps = ConnectedProps<typeof connector>
+
+export default connector(Login)
