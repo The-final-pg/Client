@@ -97,7 +97,7 @@ const DetailOffer = () => {
        </div>
      </div>
      { 
-     //triple igual para que funcione correctamente, porfavor chicos!
+     //triple igual para que funcione correctamente, porfavor chicos! 
      offerId.userClientId !== currentUser.id || currentUser.isAdmin === true || currentUser.isPremium === true ?
      <div>
      <h2 className='Detail_h2Propuestas'>propuestas</h2>
