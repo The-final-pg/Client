@@ -32,7 +32,6 @@
 .User_DropdownOptions {
   display: flex;
   flex-direction: column;
-  /* gap: 5px; */
 }
 .UserDropdownItem {
   text-decoration: none;
