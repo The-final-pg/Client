@@ -31,8 +31,6 @@ function PaysDash({props}:any) {
   }
 
   async function handleChangeState(idProposal:string, idOffer:string){
-console.log("la idProposal: ", idProposal)
-console.log("la idOffer: ", idOffer)
     const proposalState: {id: String, state: String} = {
       id: idProposal,
       state: 'released payment'

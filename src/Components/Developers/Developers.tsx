@@ -3,11 +3,11 @@ import Header from "../Header/Header"
 import './Developers.css'
 import lucia from '../../images/LuciaChinni.jpg'
 import franco from '../../images/FrancoFraiese.png'
-import luis from '../../images/LuisTourn.jpg'
+import luis from '../../images/LuisTourn.png'
 import juan from '../../images/JuanColaneri.jpg'
 import angel from '../../images/AngelVillalba.jpg'
 import lucas from '../../images/LucasPardieux.jpg'
-import gabi from '../../images/GabrielMachado.jpg'
+import gabi from '../../images/GabrielMachado.png'
 import {BsLinkedin} from 'react-icons/bs'
 import { VscGithubInverted } from "react-icons/vsc"
 import {FaLaptopCode} from 'react-icons/fa'
@@ -63,9 +63,9 @@ const Developers = () => {
                                 <a className="Dev_linkLinkedin" href="https://www.linkedin.com/in/angelvillalba/" target="_blank">
                                     <BsLinkedin className="Dev_iconLinkedin"/>
                                 </a>
-                                <a className="Dev_linkPortfolio" href="#" target="_blank">
+                                {/* <a className="Dev_linkPortfolio" href="#" target="_blank">
                                     <FaLaptopCode className="Dev_iconPortfolio"/>
-                                </a>
+                                </a> */}
                                 <a className="Dev_linkGithub" href="https://github.com/villalb4" target="_blank">
                                     <VscGithubInverted className="Dev_iconGithub" />
                                 </a>
