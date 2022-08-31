@@ -103,7 +103,7 @@ const Developers = () => {
                                 <a className="Dev_linkLinkedin" href="https://www.linkedin.com/in/lucaspardieux/" target="_blank">
                                 <BsLinkedin className="Dev_iconLinkedin"/>
                                 </a>
-                                <a className="Dev_linkPortfolio" href="#" target="_blank">
+                                <a className="Dev_linkPortfolio" href="https://lucas-pardieux.vercel.app/" target="_blank">
                                 <FaLaptopCode className="Dev_iconPortfolio"/>
                                 </a>
                                 <a className="Dev_linkGithub" href="https://github.com/LucasPardieux" target="_blank">
