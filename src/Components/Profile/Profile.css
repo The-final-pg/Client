@@ -78,7 +78,6 @@
 color: #e76f51
 }
 .Profile_editProfile {
-  /* position: absolute; */
   right: 10%;
   font-weight: 600;
   font-size: 13px;
@@ -90,7 +89,6 @@ color: #e76f51
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 10px;
 }
 .Profile_editProfile:hover {
   background-color: #2a9d8f;
@@ -101,16 +99,15 @@ color: #e76f51
   border-radius: 6px;
   color: #fff;
   cursor: pointer;
-  font-size: 17px;
+  font-size: 15px;
   height: auto;
   max-height: 250px;
   max-width: 188px;
-  padding: 10px 10px;
+  padding: 6px 11px;
   width: auto;
   font-weight: 600;
   transition: all .3s ease;
   line-height: 20px;
-  margin-top: 10px;
   
 }
 .Profile_premiumButton:hover {
@@ -183,11 +180,12 @@ color: #e76f51
 }
 
 .Profile_buttonDiv{
-  max-width: 200px;
-  /* display: flex;
+  width: 350px;
+  display: flex;
   flex-direction: row;
-  gap: 10px;
-  justify-content: space-between; */
+  gap: 20px;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 @media screen and (max-width: 850px) {
