@@ -1059,7 +1059,7 @@ export const googleLog = (user: any) => async (dispatch: Dispatch<any>) => {
       //si tiene mail (client o worker) devuelve un token y se guarda, y luego se guarda el currentUser con la data del token
       const data = jwtDecode(response.data);
       dispatch(setCurrentUser(data));
-      return window.open("/", "_self")
+      return window.open("/home", "_self")
     }
     } catch (e){
       return e
