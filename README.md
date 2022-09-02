@@ -1,5 +1,7 @@
 # ¡Te damos la bienvenida a REwork!
 
+<img src="./src/images/REwork.jpg">
+
 <p> REwork es una plataforma laboral que permite conectar a usuarios de tipo Cliente que tienen la necesidad de contratar a un profesional para un proyecto, con usuarios de tipo Freelancers que buscan las mejores oportunidades para trabajar de manera independiente. REwork le brinda seguridad en pagos y cumplimiento a ambos usuarios, a través de la firma de un contrato.</p>
 
 <h3><a href="https://www.youtube.com/watch?v=9AGz4U8_3_s&t=30s">Vídeo explicativo</a></h3>
